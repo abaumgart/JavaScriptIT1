@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Berechnung des Body-Mass-Index</title>
+	<script>
+		function berechnen()
+		  {
+			 // Eingaben speichern
+			 let alter     = document.getElementById("idAlter").value;
+			 let groesse   = document.getElementById("idGroesse").value;
+			 let gewicht   = document.getElementById("idGewicht").value;
+			 alter     = parseInt(alter);
+			 groesse   = parseFloat(groesse);
+			 gewicht   = parseFloat(gewicht);
+			  //console.log(alter);
+
+			 // BMI berechnen und ausgeben
+			  bmi = gewicht / (groesse/100 * groesse/100);
+			 document.getElementById("idBmi").textContent = bmi.toFixed(1);
+		  	let ergebnis;
+			if(bmi <18.5)
+				{
+					console.log('Untergewicht');
+					ergebnis ='Untergewicht';
+				} else if (bmi<24.9)
+				   {
+					   console.log('Normal');
+					   ergebnis='Normalgewicht';
+				   } 
+			  document.getElementById("idErgebnis").textContent =ergebnis;
+		  }
+	</script>
+
+</head>
+
+<body>
+	<form action="" method="">
+		<table>
+		<tr>
+            <td>Ihr Alter (min. 19):</td>
+            <td><input id="idAlter" size="5" value="30"></td>
+         </tr>
+         <tr>
+            <td>Ihre Größe in cm:</td>
+            <td><input id="idGroesse" size="5" value="185"></td>
+         </tr>
+         <tr>
+            <td>Ihr Gewicht in kg:</td>
+            <td><input id="idGewicht" size="5" value="79.2"></td>
+         </tr>
+			<tr>
+            <td>&nbsp;</td>
+            <td><input id="idBerechnen" type="button" value="Berechnen" onClick="berechnen()"></td>
+         </tr>
+			<tr>
+            <td>Ihr Body-Mass-Index (BMI): </td>
+            <td><span id="idBmi">&nbsp;</span></td>
+         </tr>
+		
+		<tr>
+            <td>Ergebnis: </td>
+            <td><span id="idErgebnis">&nbsp;</span></td>
+         </tr>
+		
+		</table>
+		
+	</form>
+ </body>
+</html>
